@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of this mod."
+        },
+        "version": {
+            "type": "string",
+            "description": "The version of this mod. Please use Semantic Versioning :)",
+            "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)$"
+        },
+        "authors": {
+            "type": "array",
+            "description": "The authors of this mod.",
+            "items": {
+                "type": "string"
+            }
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of this mod."
+        },
+        "dependencies": {
+            "type": "array",
+            "description": "Other mods that this mod depends on.",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The unique ID of the dependency. It must be formatted similar to a Java package name (etc. com.example.mymod)",
+                        "pattern": "^[a-z]+(\\.[a-z0-9]+)*$"
+                    },
+                    "version": {
+                        "type": "string",
+                        "description": "The version of the dependency. Please use Semantic Versioning :)",
+                        "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)$"
+                    }
+                },
+                "required": [
+                    "id",
+                    "version"
+                ]
+            }
+        }
+    },
+    "required": [
+        "name",
+        "version",
+        "authors"
+    ]
+}
